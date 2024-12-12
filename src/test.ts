@@ -138,7 +138,7 @@ import { stat } from "fs";
 //=================
 import {CalculateTotalAndSalesTax} from './sales-tax-calculator';
 
-let provinceName: string = "Washington";
+let provinceName: string = "Texas";
 
 let originalAmount: number = 200;
 
