@@ -4,6 +4,7 @@ interface IShape {
     area(areaParam: number): number
     sides(sidesParam: number): number
 }
+
 //Abstract Class
 abstract class Shape implements IShape {
     perimeter(perimeterParam: number): number {
@@ -16,6 +17,7 @@ abstract class Shape implements IShape {
 
     abstract sides(sidesParam: number): number
 }
+
 //Concrete Class
 class Circle implements IShape {
     perimeter(perimeterParam: number): number {
