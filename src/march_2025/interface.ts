@@ -31,4 +31,3 @@ class Circle implements IShape {
     }
 }
 
-//hello
