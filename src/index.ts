@@ -13,7 +13,9 @@ import { Introduction } from "./tuples";
 // import "./arrays"
 // import "./enums"
 
-import './test'
+// import './test'
+
+import './march_2025/interface'
 
 // var test: EvenNumberArray = new EvenNumberArray();
 
