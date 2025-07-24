@@ -1,7 +1,8 @@
 function calculateAverage(numbers: number[]): number {
+    var sum = 0;
     for(let i: number = numbers.length - 1; i >=0; i--) {
         var storeNumberForSum: number = numbers[i] + numbers[i-1];
-        var sum = storeNumberForSum + numbers[i - 2];
+        sum = storeNumberForSum + numbers[i - 2];
        
     }
     return sum / numbers.length;

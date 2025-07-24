@@ -20,7 +20,7 @@ import { stat } from "fs";
 
 // var studentObject: Student = new Student(936001, "Shaurya Negi", 11);
 
-// var studentObject2: Student = new Student(898176, "Erhan Ali", 11);
+// var studentObject2: Student = new Student(898176, "Erhan Alam", 11);
 
 // var studentObject3: Student = new Student(895396, "Daniyal Samadi", 11);
 
