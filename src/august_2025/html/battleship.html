@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soham's HTML World</title>
+    <style>
+        .btnClass {
+            background-color: cadetblue;
+            border: 1px solid green;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .btnClass2 {
+            background-color: rgb(112, 117, 217);
+            border: 1px solid black;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .btnClassGreen {
+            padding: 10px;
+            background-color: green;
+            border: 1px solid green;
+            border-radius: 5px;
+        }
+
+        .divBorder {
+            width: 47%; 
+            height: 150px;
+            float: left;
+            border: 2px solid gray;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <h1 style="text-align: center;">To start playing enter detail:</h1>
+    
+    <!-- Row 1-->
+    <div>
+        <div class="divBorder">
+            <h2>Player 1</h2>
+            Enter Name: <input id="player1Name" type="text" value="Soham" />
+            Enter Choices: <input id="player1Choices" type="password" value="A1,A2,B1,B2" />
+            <button class="btnClass" onclick='savePlayerDetails1("player1Name", "player1Choices")'>Save</button>
+
+            <button class="btnClass2" onclick='showChoices("player1Choices", "player1ChoicesText")'>Show</button>
+            <button class="btnClass2" onclick='hideChoices("player1ChoicesText")'>Hide</button>
+            <div id="player1ChoicesText"></div>
+        </div>
+
+        <div class="divBorder">
+            <h2>Player 2</h2>
+            Enter Name: <input id="player2Name" type="text" value="Surya" />
+            Enter Choices: <input id="player2Choices" type="password" value="C1,C2,D1,D2" />
+            <button class="btnClass" onclick='savePlayerDetails2("player2Name", "player2Choices")'>Save</button>
+
+            <button class="btnClass2" onclick='showChoices("player2Choices", "player2ChoicesText")'>Show</button>
+            <button class="btnClass2" onclick='hideChoices("player2ChoicesText")'>Hide</button>
+            <div id="player2ChoicesText"></div>
+        </div>
+    </div>
+
+    <!-- Row 2-->
+    <div style="text-align: center;">
+        <button id="startButton" disabled class="btnClassGreen" style="margin: 10px; width: 35%;" onclick='startGame()'>Start Game</button>
+        <button class="btnClassGreen" style="margin: 10px; width: 35%; background-color: indianred;" onclick='resetGame()'>Reset</button>
+    </div>
+
+    <!-- Row 3-->
+    <div>
+        <div class="divBorder">
+            <h2>Player 1's turn to guess:</h2>
+            Enter Your guess: <input id="player1Guess" type="text" />
+            <button id="player1Submit" disabled class="btnClass" onclick='submitPlayer1Guess("player1Guess", "player1GuessesDiv")'>Submit</button>
+            <div id="player1GuessesDiv"></div>
+        </div>
+
+        <div class="divBorder">
+            <h2>Player 2's turn to guess:</h2>
+            Enter Your guess: <input id="player2Guess" type="text" />
+            <button id="player2Submit" disabled class="btnClass" onclick='submitPlayer2Guess("player2Guess", "player2GuessesDiv")'>Submit</button>
+            <div id="player2GuessesDiv"></div>
+        </div>
+    </div>
+    <script src="/Users/soham/Documents/typescript-project/dist/august_2025/battleship-html-version.js"></script>
+</body>
+</html>
