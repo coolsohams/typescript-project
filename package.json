@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "tsc --watch && npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"
     },
     "keywords": [],
     "author": "",
@@ -12,5 +13,10 @@
     "devDependencies": {
         "@types/node": "^22.7.4",
         "typescript": "^5.5.3"
+    },
+    "dependencies": {
+        "@tailwindcss/cli": "^4.1.11",
+        "prompt-sync": "^4.2.0",
+        "tailwindcss": "^4.1.11"
     }
 }
