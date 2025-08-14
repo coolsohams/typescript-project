@@ -1,0 +1,17 @@
+    {
+      "version": "2.0.0",
+      "tasks": [
+
+        {
+          "label": "complie_tailwind",
+          "type": "shell",
+          "command": "npm run build"
+        },
+{
+        "label": "build_all",
+            "dependsOn": [
+                "complie_tailwind"
+            ]
+        }
+      ]
+    }
