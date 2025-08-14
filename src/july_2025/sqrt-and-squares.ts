@@ -53,12 +53,7 @@ class SquareCalculator {
     }
 
     findSqrt(sqrtNumber: number) {
-        // Calculate squareroot of a non-perfect sqaure number
         let pairsArray: Array<number> = Utility.createPairs(sqrtNumber);
-        // if (!this.isPerfectSquare(sqrtNumber)) {
-        //     pairsArray.push(0)
-        // }
-
         let quotient: number = 0;
         let currentRemainder: number = 0;
         let overAllQuotient: number = 0;

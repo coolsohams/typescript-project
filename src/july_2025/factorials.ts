@@ -1,25 +1,29 @@
-class FactorialsCalculator {
-    calculateFactorial(numberParam: number) {
-        let calculateFactorialArray: Array<number> = [];
-        let storeCurrentMultiplication: number = 1;
-        for(let i: number = 1; i <= numberParam; i++) {
-            calculateFactorialArray.push(i);
-        }
-        for(let j: number = 1; j <= calculateFactorialArray.length - 1; j++) {
-            storeCurrentMultiplication = storeCurrentMultiplication * calculateFactorialArray[j];
-        }
-        return storeCurrentMultiplication;
+class Factorial {
+    private inputNumber: number = 0
+
+    constructor(inputNumberParam: number) {
+        this.inputNumber = inputNumberParam;
     }
 
-    calculateFactorialSmall(numberParam: number) {
+    calculateFactorial() {
         let storeCurrentMultiplication: number = 1;
-        for(let i: number = 1; i <= numberParam; i++) {
+        for(let i: number = 1; i <= this.inputNumber; i++) {
             storeCurrentMultiplication = storeCurrentMultiplication * i;
         }
         return storeCurrentMultiplication;
     }
+
+    factorial(calculatedValue: number = this.inputNumber, i: number = 1) {
+        if(i < this.inputNumber) {
+            calculatedValue = calculatedValue * i
+            this.factorial(calculatedValue, ++i);
+        }
+        return calculatedValue;
+    }
+
 }
 
-let testObject: FactorialsCalculator = new FactorialsCalculator();
+let testObject: Factorial = new Factorial(5);
+testObject.factorial();
 
-console.log(testObject.calculateFactorial(9));
+console.log(testObject.calculateFactorial());
