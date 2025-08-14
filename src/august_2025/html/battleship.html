@@ -5,64 +5,71 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="battleship.css">
+    <!-- <link rel="stylesheet" href="battleship.css"> -->
     <link rel="stylesheet" href="../../output.css" >
 </head>
 
 <body>
     
-    <h1 style="text-align: center;">To start playing enter detail:</h1>
+    <h1 class="text-5xl text-center font-semibold">To start playing enter detail:</h1>
     
     <!-- Row 1-->
-    <div>
-        <div class="divBorder">
+    <div class="flex space-x-10 justify-center m-3">
+        <div class="border p-6 rounded-sm w-1/2">
             <h2 class="">Player 1</h2>
             Enter Name: <input id="player1Name" class="border border-black rounded p-1" id="player2Choices" type="text" value="Soham" />
             Enter Choices: <input id="player1Choices" class="border border-black rounded p-1" id="player2Choices" type="password" value="A1,A2,B1,B2" />
-            <button class="btnClass bg-emerald-600 hover:bg-emerald-800" onclick='savePlayerDetails1("player1Name", "player1Choices")'>Save</button>
+            <button class="bg-emerald-600 hover:bg-emerald-800 p-1.5 border rounded-sm" onclick='savePlayerDetails1("player1Name", "player1Choices")'>Save</button>
 
-            <button class="btnClass2 bg-blue-500 hover:bg-sky-700" onclick='showChoices("player1Choices", "player1ChoicesText")'>Show</button>
-            <button class="btnClass2 bg-blue-500 hover:bg-sky-700" onclick='hideChoices("player1ChoicesText")'>Hide</button>
-            <div id="player1ChoicesText"></div>
+            <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='showChoices("player1Choices", "player1ChoicesText")'>Show</button>
+            <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='hideChoices("player1ChoicesText")'>Hide</button>
+            <div id="player1ChoicesText" class="text-center"></div>
         </div>
 
-        <div class="divBorder">
+        <div class="border p-6 rounded-sm w-1/2">
             <h2>Player 2</h2>
             Enter Name: <input id="player2Name" class="border border-black rounded p-1" id="player2Choices" type="text" value="Surya" />
             Enter Choices: <input class="border border-black rounded p-1" id="player2Choices" type="password" value="C1,C2,D1,D2" />
-            <button class="btnClass bg-emerald-600 hover:bg-emerald-800" onclick='savePlayerDetails2("player2Name", "player2Choices")'>Save</button>
+            <button class=" bg-emerald-600 hover:bg-emerald-800 p-1.5 border rounded-sm" onclick='savePlayerDetails2("player2Name", "player2Choices")'>Save</button>
 
-            <button class="btnClass2 bg-blue-500 hover:bg-sky-700" onclick='showChoices("player2Choices", "player2ChoicesText")'>Show</button>
-            <button class="btnClass2 bg-blue-500 hover:bg-sky-700" onclick='hideChoices("player2ChoicesText")'>Hide</button>
-            <div id="player2ChoicesText"></div>
+            <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='showChoices("player2Choices", "player2ChoicesText")'>Show</button>
+            <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='hideChoices("player2ChoicesText")'>Hide</button>
+            <div id="player2ChoicesText" class="text-center"></div>
         </div>
     </div>
+    
 
     <!-- Row 2-->
-    <div style="text-align: center;">
-        <button id="startButton" disabled class="btnClassGreen" style="margin: 10px; width: 35%;" onclick='startGame()'>Start Game</button>
-        <button class="btnClassGreen" style="margin: 10px; width: 35%; background-color: indianred;" onclick='resetGame()'>Reset</button>
+    <div class="flex space-x-20 justify-center">
+        <button id="startButton" disabled class="border p-1 m-4 w-1/2 bg-green-600 rounded-sm" onclick='startGame()'>Start Game</button>
+        <button class="border p-1 m-4 w-1/2 bg-red-400 rounded-sm" onclick='resetGame()'>Reset</button>
     </div>
 
     <!-- Row 3-->
-    <div class="flex">
-        <div class="divBorder">
+    <div class="flex justify-between m-3 space-x-10">
+        <div class="border rounded-sm p-6 w-1/2">
             <h2>Player 1's turn to guess:</h2>
             Enter Your guess: <input class="border border-black rounded p-1" id="player1Guess" type="text" />
-            <button id="player1Submit" disabled class="btnClass bg-emerald-600 hover:bg-emerald-800" onclick='submitPlayer1Guess("player1Guess", "player1GuessesDiv")'>Submit</button>
+            <button id="player1Submit" disabled class=" bg-emerald-600 hover:bg-emerald-800 p-1.5 border rounded-sm" onclick='submitPlayer1Guess("player1Guess", "player1GuessesDiv")'>Submit</button>
             <div id="player1GuessesDiv"></div>
         </div>
 
-        <div class="divBorder">
+        <div class="border rounded-sm p-6 w-1/2">
             <h2>Player 2's turn to guess:</h2>
             Enter Your guess: <input class="border border-black rounded p-1" id="player2Guess" type="text" />
-            <button id="player2Submit" disabled class="btnClass bg-emerald-600 hover:bg-emerald-800" onclick='submitPlayer2Guess("player2Guess", "player2GuessesDiv")'>Submit</button>
+            <button id="player2Submit" disabled class="bg-emerald-600 hover:bg-emerald-800 p-1.5 border rounded-sm" onclick='submitPlayer2Guess("player2Guess", "player2GuessesDiv")'>Submit</button>
             <div id="player2GuessesDiv"></div>
         </div>
     </div>
 
 
-    <!-- Outter Div-->
+
+
+
+
+
+
+    <!-- Grid Outter Div-->
     <div class="flex border border-green-500 m-12 rounded-md p-5 space-x-2">
         
         <!--Row 1 Div-->
