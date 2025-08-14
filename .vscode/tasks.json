@@ -1,16 +1,21 @@
     {
       "version": "2.0.0",
       "tasks": [
-
         {
           "label": "complie_tailwind",
           "type": "shell",
-          "command": "npm run build"
+          "command": "npm run build-tailwind"
         },
-{
+        {
+          "label": "complie_ts",
+          "type": "shell",
+          "command": "npm run build-typescript"
+        },
+        {
         "label": "build_all",
             "dependsOn": [
-                "complie_tailwind"
+                "complie_tailwind",
+                "complie_ts"
             ]
         }
       ]
