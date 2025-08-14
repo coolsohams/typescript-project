@@ -22,7 +22,14 @@
 // import "./july_2025/factors";
 // import "./july_2025/exponents";
 // import "./july_2025/loops";
-import "./july_2025/sqrt-and-squares";
+// import "./july_2025/sqrt-and-squares";
 // import "./july_2025/substring";
-// import "./july_2025/teaching";
 // import "./july_2025/factorials";
+// import "./july_2025/fibonachi";
+
+
+// ************************** August 2025 ************************** 
+// import "./august_2025/geometry";
+// import "./august_2025/html-practice";
+// import "./august_2025/battleship";
+import "./august_2025/battleship-html-version"
