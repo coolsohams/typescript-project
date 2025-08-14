@@ -39,13 +39,29 @@ class BattleshipGameHtml {
     }
 }
 
+
+function getInputValue(inputElementId: string) {
+    const inputElement = document.getElementById(inputElementId) as HTMLInputElement;
+    return inputElement.value;
+}
+
+function getDivElement(inputElementId: string) {
+    const divElement = document.getElementById(inputElementId) as HTMLDivElement;
+    return divElement;
+}
+
+function resetInputValue(inputElementId: string) {
+    const inputElement = document.getElementById(inputElementId) as HTMLInputElement;
+    inputElement.value = '';
+}
+
 let player1: Player | undefined;
 let player2: Player | undefined;
 let battleShipGame: BattleshipGameHtml | undefined;
 
 function savePlayerDetails1(nameId: string, choicesId: string) {
-    const name = (document.getElementById(nameId) as HTMLInputElement).value;
-    const choices = (document.getElementById(choicesId) as HTMLInputElement).value;
+    const name = getInputValue(nameId);
+    const choices = getInputValue(choicesId);
     
     const playerChoices: Array<string> = choices.split(",");
     player1 = new Player(name, playerChoices);
@@ -56,8 +72,8 @@ function savePlayerDetails1(nameId: string, choicesId: string) {
 }
 
 function savePlayerDetails2(nameId: string, choicesId: string) {
-    const name = (document.getElementById(nameId) as HTMLInputElement).value;
-    const choices = (document.getElementById(choicesId) as HTMLInputElement).value;
+    const name = getInputValue(nameId);
+    const choices = getInputValue(choicesId);
 
     const playerChoices: Array<string> = choices.split(",");
     player2 = new Player(name, playerChoices);
@@ -73,7 +89,7 @@ function submitPlayer1Guess(player1GuessId: string, divId: string) {
     } else {
         alert("Invalid player 1 information");
     }
-    const divShowGuesses = document.getElementById(divId) as HTMLDivElement;
+    const divShowGuesses = getDivElement(divId);
     divShowGuesses.innerText = player1?.guesses.toString()?? "";
 }
 
@@ -83,13 +99,13 @@ function submitPlayer2Guess(player2GuessId: string, divId: string) {
     } else {
         alert("Invalid player 2 information");
     }
-    const divShowGuesses = document.getElementById(divId) as HTMLDivElement;
+    const divShowGuesses = getDivElement(divId);
     divShowGuesses.innerText = player2?.guesses.toString()?? "";
 }
 
 function submitGuess(player1GuessId: string, guessingPlayer: Player, player: Player) {
-    const guessInputElement = (document.getElementById(player1GuessId) as HTMLInputElement);
-     const guess = guessInputElement.value;
+    const guessInputElement = getInputValue(player1GuessId)
+     const guess = guessInputElement;
      const playerSelections = player.playerSelections?? [];
      const returnValue: number = battleShipGame?.findPositionInArray(playerSelections, guess)?? -1;
 
@@ -118,7 +134,7 @@ function submitGuess(player1GuessId: string, guessingPlayer: Player, player: Pla
     } else if(battleShipGame?.checkArrayIsAllNull(player1?.playerSelections??[]) == true) {
         alert(`GAME OVER! PLAYER 2 WINS!`)
     }
-    guessInputElement.value = '';
+    resetInputValue(player1GuessId);
 }
 
 function resetGame() {
@@ -147,12 +163,31 @@ function disbleButton(buttonId: string) {
 }
 
 function showChoices(playerInputId:string, divId: string) {
-    const playerInput = (document.getElementById(playerInputId) as HTMLInputElement);
-    const divIdVar = (document.getElementById(divId) as HTMLDivElement);
-    divIdVar.innerText = playerInput.value;
+    const playerInput = getInputValue(playerInputId);
+    const divIdVar = getDivElement(divId);
+    divIdVar.innerText = playerInput;
 }
 
 function hideChoices(divId: string) {
-    const divIdVar = (document.getElementById(divId) as HTMLDivElement);
+    const divIdVar = getDivElement(divId);
     divIdVar.innerText = '';
+}
+
+function selectGridItem(event: any) {
+    console.log(event);
+    const selectedValue = event.target.innerText;
+    
+    // player1?.playerSelections?.push(selectedValue);
+
+    if(event.target.className.includes('bg-green-400')) {
+        event.target.className = 'border border-b-emerald-700 bg-red-400 rounded-sm p-2';
+    } else {
+        event.target.className = 'border border-b-emerald-700 bg-green-400 rounded-sm p-2';
+    }
+}
+
+const choices: HTMLCollectionOf<Element> = document.getElementsByClassName('choice');
+
+for(let i = 0; i < choices.length; i++) {
+    choices[i].addEventListener('click', selectGridItem);
 }

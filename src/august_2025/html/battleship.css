@@ -1,0 +1,30 @@
+.btnClass {
+    border: 1px solid green;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.btnClass2 {
+    
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.btnClassGreen {
+    padding: 10px;
+    background-color: green;
+    border: 1px solid green;
+    border-radius: 5px;
+}
+
+.divBorder {
+    width: 47%; 
+    height: 150px;
+    float: left;
+    border: 2px solid gray;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
