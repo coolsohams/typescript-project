@@ -4,14 +4,14 @@
     <title>Soham's HTML World</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    
     <!-- <link rel="stylesheet" href="battleship.css"> -->
     <link rel="stylesheet" href="../../output.css" >
 </head>
 
 <body>
     
-    <h1 class="text-5xl text-center font-semibold">To start playing enter detail:</h1>
+    <h1 class="text-5xl text-center font-semibold">To start playing enter details:</h1>
     
     <!-- Row 1-->
     <div class="flex space-x-10 justify-center m-3">
@@ -20,31 +20,139 @@
             Enter Name: <input id="player1Name" class="border border-black rounded p-1" id="player2Choices" type="text" value="Soham" />
             Enter Choices: <input id="player1Choices" class="border border-black rounded p-1" id="player2Choices" type="password" value="A1,A2,B1,B2" />
             <button class="bg-emerald-600 hover:bg-emerald-800 p-1.5 border rounded-sm" onclick='savePlayerDetails1("player1Name", "player1Choices")'>Save</button>
-
+            
             <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='showChoices("player1Choices", "player1ChoicesText")'>Show</button>
             <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='hideChoices("player1ChoicesText")'>Hide</button>
             <div id="player1ChoicesText" class="text-center"></div>
+            
+            
+            
+            <!-- Grid Outter Div-->
+            <div class="flex  justify-center m-12 rounded-md p-5 space-x-2" id="player1Grid">
+                
+                <!--Row 1 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">A1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">A2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">A3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">A4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">A5</div>
+                </div>
+                
+                <!--Row 2 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">B1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">B2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">B3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">B4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">B5</div>
+                </div>
+                
+                <!--Row 3 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">C1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">C2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">C3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">C4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">C5</div>
+                </div>
+                
+                <!--Row 4 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">D1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">D2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">D3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">D4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">D5</div>
+                </div>
+                
+                <!--Row 5 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">E1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">E2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">E3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">E4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">E5</div>
+                </div>
+                
+            </div>
+            
+            
+            
         </div>
-
+        
         <div class="border p-6 rounded-sm w-1/2">
             <h2>Player 2</h2>
             Enter Name: <input id="player2Name" class="border border-black rounded p-1" id="player2Choices" type="text" value="Surya" />
             Enter Choices: <input class="border border-black rounded p-1" id="player2Choices" type="password" value="C1,C2,D1,D2" />
             <button class=" bg-emerald-600 hover:bg-emerald-800 p-1.5 border rounded-sm" onclick='savePlayerDetails2("player2Name", "player2Choices")'>Save</button>
-
+            
             <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='showChoices("player2Choices", "player2ChoicesText")'>Show</button>
             <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='hideChoices("player2ChoicesText")'>Hide</button>
             <div id="player2ChoicesText" class="text-center"></div>
+            
+            
+            <!-- Grid Outter Div-->
+            <div class="flex  justify-center m-12 rounded-md p-5 space-x-2" id="player1Grid">
+                
+                <!--Row 1 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">A1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">A2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">A3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">A4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">A5</div>
+                </div>
+                
+                <!--Row 2 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">B1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">B2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">B3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">B4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">B5</div>
+                </div>
+                
+                <!--Row 3 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">C1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">C2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">C3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">C4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">C5</div>
+                </div>
+                
+                <!--Row 4 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">D1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">D2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">D3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">D4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">D5</div>
+                </div>
+                
+                <!--Row 5 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">E1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">E2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">E3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">E4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice2">E5</div>
+                </div>
+                
+                
+                
+            </div>
         </div>
     </div>
     
-
+    
     <!-- Row 2-->
     <div class="flex space-x-20 justify-center">
         <button id="startButton" disabled class="border p-1 m-4 w-1/2 bg-green-600 rounded-sm" onclick='startGame()'>Start Game</button>
         <button class="border p-1 m-4 w-1/2 bg-red-400 rounded-sm" onclick='resetGame()'>Reset</button>
     </div>
-
+    
     <!-- Row 3-->
     <div class="flex justify-between m-3 space-x-10">
         <div class="border rounded-sm p-6 w-1/2">
@@ -53,7 +161,7 @@
             <button id="player1Submit" disabled class=" bg-emerald-600 hover:bg-emerald-800 p-1.5 border rounded-sm" onclick='submitPlayer1Guess("player1Guess", "player1GuessesDiv")'>Submit</button>
             <div id="player1GuessesDiv"></div>
         </div>
-
+        
         <div class="border rounded-sm p-6 w-1/2">
             <h2>Player 2's turn to guess:</h2>
             Enter Your guess: <input class="border border-black rounded p-1" id="player2Guess" type="text" />
@@ -61,14 +169,14 @@
             <div id="player2GuessesDiv"></div>
         </div>
     </div>
-
-
-
-
-
-
-
-
+    
+    
+    
+    
+    
+    
+    
+    
     <!-- Grid Outter Div-->
     <div class="flex border border-green-500 m-12 rounded-md p-5 space-x-2">
         
@@ -80,7 +188,7 @@
             <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">A4</div>
             <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">A5</div>
         </div>
-
+        
         <!--Row 2 Div-->
         <div class="space-y-2">
             <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">B1</div>
@@ -89,7 +197,7 @@
             <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">B4</div>
             <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">B5</div>
         </div>
-
+        
         <!--Row 3 Div-->
         <div class="space-y-2">
             <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">C1</div>
@@ -98,7 +206,7 @@
             <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">C4</div>
             <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">C5</div>
         </div>
-
+        
         <!--Row 4 Div-->
         <div class="space-y-2">
             <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">D1</div>
@@ -107,7 +215,7 @@
             <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">D4</div>
             <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">D5</div>
         </div>
-
+        
         <!--Row 5 Div-->
         <div class="space-y-2">
             <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">E1</div>
@@ -116,9 +224,9 @@
             <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">E4</div>
             <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">E5</div>
         </div>
-
+        
     </div>
-
+    
     <script src="/Users/soham/Documents/typescript-project/dist/august_2025/battleship-html-version.js"></script>
 </body>
 </html>

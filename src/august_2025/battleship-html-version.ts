@@ -173,11 +173,27 @@ function hideChoices(divId: string) {
     divIdVar.innerText = '';
 }
 
-function selectGridItem(event: any) {
+function selectGridItem1(event: any) {
+    console.log(event);
+    const selectedValue = event.target.innerText;
+    const player1Name = getInputValue('player1Name');
+    if(player1 == undefined) {
+        player1 = new Player(player1Name, []);
+    }
+    player1?.playerSelections?.push(selectedValue);
+
+    if(event.target.className.includes('bg-green-400')) {
+        event.target.className = 'border border-b-emerald-700 bg-red-400 rounded-sm p-2';
+    } else {
+        event.target.className = 'border border-b-emerald-700 bg-green-400 rounded-sm p-2';
+    }
+}
+
+function selectGridItem2(event: any) {
     console.log(event);
     const selectedValue = event.target.innerText;
     
-    // player1?.playerSelections?.push(selectedValue);
+    player2?.playerSelections?.push(selectedValue);
 
     if(event.target.className.includes('bg-green-400')) {
         event.target.className = 'border border-b-emerald-700 bg-red-400 rounded-sm p-2';
@@ -187,7 +203,12 @@ function selectGridItem(event: any) {
 }
 
 const choices: HTMLCollectionOf<Element> = document.getElementsByClassName('choice');
+const choices2: HTMLCollectionOf<Element> = document.getElementsByClassName('choice2');
 
 for(let i = 0; i < choices.length; i++) {
-    choices[i].addEventListener('click', selectGridItem);
+    choices[i].addEventListener('click', selectGridItem1);
+}
+
+for(let j = 0; j < choices2.length; j++) {
+    choices2[j].addEventListener('click', selectGridItem2);
 }
