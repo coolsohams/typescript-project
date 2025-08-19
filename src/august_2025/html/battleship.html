@@ -16,19 +16,17 @@
     <!-- Row 1-->
     <div class="flex space-x-10 justify-center m-3">
         <div class="border p-6 rounded-sm w-1/2">
-            <h2 class="">Player 1</h2>
-            Enter Name: <input id="player1Name" class="border border-black rounded p-1" id="player2Choices" type="text" value="Soham" />
-            Enter Choices: <input id="player1Choices" class="border border-black rounded p-1" id="player2Choices" type="password" value="A1,A2,B1,B2" />
-            <button class="bg-emerald-600 hover:bg-emerald-800 p-1.5 border rounded-sm" onclick='savePlayerDetails1("player1Name", "player1Choices")'>Save</button>
-            
-            <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='showChoices("player1Choices", "player1ChoicesText")'>Show</button>
-            <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='hideChoices("player1ChoicesText")'>Hide</button>
-            <div id="player1ChoicesText" class="text-center"></div>
+
+            <!-- Name input div -->
+            <div class="flex flex-col items-center">
+                <h2 class="">Player 1</h2>
+                Enter Name: <input id="player1Name" class="border border-black rounded p-1" type="text" value="Soham" />
+            </div>
             
             
-            
+        <div class="flex flex-col items-center">
             <!-- Grid Outter Div-->
-            <div class="flex  justify-center m-12 rounded-md p-5 space-x-2" id="player1Grid">
+            <div class="flex  justify-center m-2 rounded-md p-2 space-x-2" id="player1Grid">
                 
                 <!--Row 1 Div-->
                 <div class="space-y-2">
@@ -77,23 +75,28 @@
                 
             </div>
             
+            <!-- Buttons -->
+            <div>
+                <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='showChoices("player1", "player1ChoicesText")'>Show</button>
+                <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='hideChoices("player1ChoicesText")'>Hide</button>
+                <div id="player1ChoicesText" class="text-center"></div>                
+            </div>
             
-            
+        </div>
+
         </div>
         
         <div class="border p-6 rounded-sm w-1/2">
-            <h2>Player 2</h2>
-            Enter Name: <input id="player2Name" class="border border-black rounded p-1" id="player2Choices" type="text" value="Surya" />
-            Enter Choices: <input class="border border-black rounded p-1" id="player2Choices" type="password" value="C1,C2,D1,D2" />
-            <button class=" bg-emerald-600 hover:bg-emerald-800 p-1.5 border rounded-sm" onclick='savePlayerDetails2("player2Name", "player2Choices")'>Save</button>
+            <!-- Name input div -->
+            <div class="flex flex-col items-center">
+                <h2>Player 2</h2>
+                Enter Name: <input id="player2Name" class="border border-black rounded p-1" type="text" value="Surya" />
+            </div>
             
-            <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='showChoices("player2Choices", "player2ChoicesText")'>Show</button>
-            <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='hideChoices("player2ChoicesText")'>Hide</button>
-            <div id="player2ChoicesText" class="text-center"></div>
-            
-            
+            <div class="flex flex-col items-center">
+
             <!-- Grid Outter Div-->
-            <div class="flex  justify-center m-12 rounded-md p-5 space-x-2" id="player1Grid">
+            <div class="flex  justify-center m-2 rounded-md p-2 space-x-2" id="player1Grid">
                 
                 <!--Row 1 Div-->
                 <div class="space-y-2">
@@ -143,6 +146,14 @@
                 
                 
             </div>
+
+            <div>
+                <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='showChoices("player2", "player2ChoicesText")'>Show</button>
+                <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='hideChoices("player2ChoicesText")'>Hide</button>
+                <div id="player2ChoicesText" class="text-center"></div>
+            </div>
+
+            </div>
         </div>
     </div>
     
@@ -177,54 +188,21 @@
     
     
     
-    <!-- Grid Outter Div-->
-    <div class="flex border border-green-500 m-12 rounded-md p-5 space-x-2">
-        
-        <!--Row 1 Div-->
-        <div class="space-y-2">
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">A1</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">A2</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">A3</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">A4</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">A5</div>
+
+
+    <h2>Practice</h2>
+    <div class="border border-amber-600 min-h-10 m-10 flex flex-row gap-4 p-4">
+        <div class="border border-blue-500 min-h-10 p-1">
+            Div 1
         </div>
-        
-        <!--Row 2 Div-->
-        <div class="space-y-2">
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">B1</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">B2</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">B3</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">B4</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">B5</div>
+
+        <div class="border border-blue-500 min-h-10 p-1">
+            Div 2
         </div>
-        
-        <!--Row 3 Div-->
-        <div class="space-y-2">
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">C1</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">C2</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">C3</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">C4</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">C5</div>
-        </div>
-        
-        <!--Row 4 Div-->
-        <div class="space-y-2">
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">D1</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">D2</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">D3</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">D4</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">D5</div>
-        </div>
-        
-        <!--Row 5 Div-->
-        <div class="space-y-2">
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">E1</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">E2</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">E3</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">E4</div>
-            <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice">E5</div>
-        </div>
-        
+
+        <div class="border border-blue-500 min-h-10 p-1">
+            Div 2
+        </div>                  
     </div>
     
     <script src="/Users/soham/Documents/typescript-project/dist/august_2025/battleship-html-version.js"></script>
