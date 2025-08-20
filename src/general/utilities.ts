@@ -35,12 +35,11 @@ export class Utility {
         array[index2] = temporaryArrayValue;
     }
     
-    static checkArrayIsAllNull(arr: Array<number | undefined>) {
-        this.myVariable;
-        for (let i = 0; i < arr.length; i++) {
-            if (arr[i] != undefined) {
-                return true;
-            }
+    static checkArrayIsAllNull(arr: Array<any>) {
+        if(arr[0] == null && arr[1] == null && arr[2] == null && arr[3] == null) {
+            return true;
+        } else {
+            return false;
         }
     }
     
@@ -76,6 +75,16 @@ export class Utility {
             storeCurrentMultiplication = storeCurrentMultiplication * i;
         }
         return storeCurrentMultiplication;
+    }
+
+    static findPositionInArray(arr: Array<any>, findingVariable: any) : number {
+        let i: number = 0
+        for(i; i <= 3; i++) {
+            if(arr[i] == findingVariable) {
+                break;
+            }
+        }
+        return i;
     }
 }
 
