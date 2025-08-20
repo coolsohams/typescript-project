@@ -28,7 +28,7 @@ function checkArrayIsAllNull(arr: Array<any>) {
     }
 }
 
-function findPositionInArray(arr: Array<any>, findingVariable: any) : number {
+function findPositionInArrayBattleship(arr: Array<any>, findingVariable: any) : number {
     let i: number = 0
     for(i; i <= 3; i++) {
         if(arr[i] == findingVariable) {
@@ -81,7 +81,7 @@ function submitGuess(player1GuessId: string, guessingPlayer: Player, player: Pla
     const guessInputElement = getInputValue(player1GuessId)
     const guess = guessInputElement;
     const playerSelections = player.playerSelections?? [];
-    const returnValue: number = findPositionInArray(playerSelections, guess)?? -1;
+    const returnValue: number = findPositionInArrayBattleship(playerSelections, guess)?? -1;
     
     guessingPlayer.guesses.push(guess);
     
@@ -155,7 +155,7 @@ function hideChoices(divId: string) {
 }
 
 function removeSelection(arr: Array<string | null>, removeVar: string) {
-    let index: number = findPositionInArray(arr, removeVar);
+    let index: number = findPositionInArrayBattleship(arr, removeVar);
     arr.splice(index, 1);
     return arr;
 }
