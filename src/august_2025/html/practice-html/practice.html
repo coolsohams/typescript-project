@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../../../output.css" >
+</head>
+
+<body>
+    <!-- User split input div -->
+    <div class="border-amber-600 min-h-3 m-4 p-3 rounded-md bg-blue-200 border-2 flex gap-2">
+        <input type="text" id="splitValues" class="border rounded-md bg-white" value="A,B,C,D,E,F,G,H">
+        <button class="border p-2 rounded-md bg-green-500" onclick="spliaceAndSplit.displaySplitValues()">Split</button>
+    </div>
+    <!-- Split Div -->
+    <div id="splitDiv" class="border-amber-600 min-h-3 m-4 p-3 rounded-md bg-blue-200 border-2 flex gap-2">
+        <!-- <div class="border-2 p-1 bg-amber-400 ">1</div>
+        <div class="border-2 p-1 bg-green-400">2</div> -->
+    </div>
+    
+    <!-- User splice input div -->
+    <div class="border-amber-600 min-h-3 m-4 p-3 rounded-md bg-blue-200 border-2 flex gap-2">
+        <input type="text" id="spliceValues" class="border rounded-md bg-white">
+        <button class="border p-2 rounded-md bg-red-500" onclick="spliaceAndSplit.displaySplicedValues();spliaceAndSplit.displaySplicingValues()">Splice</button>
+    </div>
+    
+    <div class="flex w-full">
+        <div id="splicingDiv" class="border-amber-600 min-h-3 m-4 p-3 rounded-md bg-blue-200 border-2 flex gap-2 w-1/2">
+        </div>
+
+        <div id="splicedDiv" class="border-amber-600 min-h-3 m-4 p-3 rounded-md bg-blue-200 border-2 flex gap-2 w-1/2">
+        </div>
+
+    </div>
+    
+    <script src="/Users/soham/Documents/typescript-project/dist/august_2025/html/practice-html/practice.js"></script>
+</body>
+</html>
