@@ -112,18 +112,32 @@ function submitGuess(player1GuessId: string, guessingPlayer: Player, player: Pla
 }
 
 function resetGame() {
+    const choicesPlayer1 = document.getElementsByClassName('choice')
+    const choicesPlayer2 = document.getElementsByClassName('choice2')
+    if(player1) {
+        for(let i: number = 0; i < choicesPlayer1.length; i++) {
+            deSelectItem(choicesPlayer1[i], player1, choicesPlayer1[i].innerHTML)
+        }
+    }
+    
+    if(player2) {
+        for(let j: number = 0; j < choicesPlayer2.length; j++) {
+            deSelectItem(choicesPlayer2[j], player2, choicesPlayer2[j].innerHTML)
+        }
+    }
+    
     player1 = undefined;
     player2 = undefined;
     battleShipGame = undefined;
     disbleButton("startButton");
-    disbleButton("player1Submit");
-    disbleButton("player2Submit");
 }
 
 function startGame() {
     battleShipGame = new BattleshipGameHtml(player1, player2);
     enableButton("player1Submit");
     enableButton("player2Submit");
+    enableButton("player1Guess");
+    enableButton("player2Guess");
 }
 
 function enableButton(buttonId: string) {
@@ -136,7 +150,7 @@ function disbleButton(buttonId: string) {
     btn.disabled = true;
 }
 
-function showChoices(player: string, divId: string) {
+function showChoices(player: string, divId: string, gridDivId: string) {
     const divIdVar = getDivElement(divId);
     let playChoices:string = '';
     
@@ -147,11 +161,17 @@ function showChoices(player: string, divId: string) {
     }
     
     divIdVar.innerText = playChoices;
+
+    const gridDiv = getDivElement(gridDivId) as HTMLDivElement;
+    gridDiv.className = 'flex justify-center m-2 rounded-md p-2 space-x-2';
 }
 
-function hideChoices(divId: string) {
-    const divIdVar = getDivElement(divId);
+function hideChoices(choiceTextdivId: string, gridDivId: string) {
+    const divIdVar = getDivElement(choiceTextdivId) as HTMLDivElement;
     divIdVar.innerText = '';
+
+    const gridDiv = getDivElement(gridDivId) as HTMLDivElement;
+    gridDiv.className = 'hidden';
 }
 
 function removeSelection(arr: Array<string | null>, removeVar: string) {
@@ -160,11 +180,43 @@ function removeSelection(arr: Array<string | null>, removeVar: string) {
     return arr;
 }
 
-function enableStartButtom() {
+function enableStartButton() {
     if(player1 && player1.playerSelections && player1.playerSelections?.length == 4 && player1 && player2?.playerSelections?.length == 4) {
         enableButton('startButton');
     }
 }
+
+function selectItem(target: HTMLElement, player: Player, selectedValue: string) {
+    if(player?.playerSelections != null && player?.playerSelections?.length >= 4) {
+        alert("You have selected maximum choices.")
+    } else {
+        target.className = 'border border-b-emerald-700 bg-green-400 rounded-sm p-2 choice';
+        player?.playerSelections?.push(selectedValue);
+        enableStartButton();
+    } 
+}
+
+function deSelectItem(target: Element, player: Player, selectedValue: string) {
+    if(battleShipGame == undefined && target) {
+        target.className = 'border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice';
+        if(player.playerSelections != null) {
+            player.playerSelections = removeSelection(player.playerSelections, selectedValue);
+        }
+        
+        if(player.playerSelections && player.playerSelections?.length < 4) {
+            disbleButton('startButton');
+            disbleButton('player1Submit');
+            disbleButton('player2Submit');
+            disbleButton('player1Guess');
+            disbleButton('player2Guess');
+        }
+    } else {
+        alert("You cannot change choices after you started game. You can reset game to reselect choices.")
+    }
+    
+    
+}
+
 
 function selectGridItem1(event: any) {
     const selectedValue = event.target.innerText;
@@ -174,18 +226,9 @@ function selectGridItem1(event: any) {
     }
     
     if(event.target.className.includes('bg-green-400')) {
-        event.target.className = 'border border-b-emerald-700 bg-red-400 rounded-sm p-2';
-        if(player1.playerSelections != null) {
-            player1.playerSelections = removeSelection(player1.playerSelections, selectedValue);
-        }
+        deSelectItem(event.target, player1, selectedValue);
     } else {
-        if(player1?.playerSelections != null && player1?.playerSelections?.length >= 4) {
-            alert("You have selected maximum choices.")
-        } else {
-            event.target.className = 'border border-b-emerald-700 bg-green-400 rounded-sm p-2';
-            player1?.playerSelections?.push(selectedValue);
-            enableStartButtom();
-        } 
+        selectItem(event.target, player1, selectedValue);
     }
 }
 
@@ -197,18 +240,9 @@ function selectGridItem2(event: any) {
     }
     
     if(event.target.className.includes('bg-green-400')) {
-        event.target.className = 'border border-b-emerald-700 bg-red-400 rounded-sm p-2';
-        if(player2.playerSelections != null) {
-            player2.playerSelections = removeSelection(player2.playerSelections, selectedValue);
-        }
+        deSelectItem(event.target, player2, selectedValue);
     } else {
-        if(player2?.playerSelections != null && player2?.playerSelections?.length >= 4) {
-            alert("You have selected maximum choices.")
-        } else {
-            event.target.className = 'border border-b-emerald-700 bg-green-400 rounded-sm p-2';
-            player2?.playerSelections?.push(selectedValue);
-            enableStartButtom();
-        }
+        selectItem(event.target, player2, selectedValue);
     }
 }
 

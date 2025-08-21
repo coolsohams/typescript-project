@@ -24,7 +24,7 @@
             </div>
             
             
-        <div class="flex flex-col items-center">
+        <div class="flex flex-col items-center m-2">
             <!-- Grid Outter Div-->
             <div class="flex  justify-center m-2 rounded-md p-2 space-x-2" id="player1Grid">
                 
@@ -77,8 +77,8 @@
             
             <!-- Buttons -->
             <div>
-                <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='showChoices("player1", "player1ChoicesText")'>Show</button>
-                <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='hideChoices("player1ChoicesText")'>Hide</button>
+                <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='showChoices("player1", "player1ChoicesText", "player1Grid")'>Show</button>
+                <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='hideChoices("player1ChoicesText", "player1Grid")'>Hide</button>
                 <div id="player1ChoicesText" class="text-center"></div>                
             </div>
             
@@ -93,10 +93,10 @@
                 Enter Name: <input id="player2Name" class="border border-black rounded p-1" type="text" value="Surya" />
             </div>
             
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center m-2">
 
             <!-- Grid Outter Div-->
-            <div class="flex  justify-center m-2 rounded-md p-2 space-x-2" id="player1Grid">
+            <div class="flex justify-center m-2 rounded-md p-2 space-x-2" id="player2Grid">
                 
                 <!--Row 1 Div-->
                 <div class="space-y-2">
@@ -148,8 +148,8 @@
             </div>
 
             <div>
-                <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='showChoices("player2", "player2ChoicesText")'>Show</button>
-                <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='hideChoices("player2ChoicesText")'>Hide</button>
+                <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='showChoices("player2", "player2ChoicesText", "player2Grid")'>Show</button>
+                <button class=" bg-blue-500 hover:bg-sky-700 p-1.5 border rounded-sm" onclick='hideChoices("player2ChoicesText", "player2Grid")'>Hide</button>
                 <div id="player2ChoicesText" class="text-center"></div>
             </div>
 
@@ -160,7 +160,7 @@
     
     <!-- Row 2-->
     <div class="flex space-x-20 justify-center">
-        <button id="startButton" disabled class="border p-1 m-4 w-1/2 bg-green-600 rounded-sm" onclick='startGame()'>Start Game</button>
+        <button id="startButton" disabled class="border p-1 m-4 w-1/2 bg-green-600 rounded-sm focus:bg-green-800 focus:ring-2 focus:ring-green-300 disabled:bg-gray-400" onclick='startGame()'>Start Game</button>
         <button class="border p-1 m-4 w-1/2 bg-red-400 rounded-sm" onclick='resetGame()'>Reset</button>
     </div>
     
@@ -168,15 +168,15 @@
     <div class="flex justify-between m-3 space-x-10">
         <div class="border rounded-sm p-6 w-1/2">
             <h2>Player 1's turn to guess:</h2>
-            Enter Your guess: <input class="border border-black rounded p-1" id="player1Guess" type="text" />
-            <button id="player1Submit" disabled class=" bg-emerald-600 hover:bg-emerald-800 p-1.5 border rounded-sm" onclick='submitPlayer1Guess("player1Guess", "player1GuessesDiv")'>Submit</button>
+            Enter Your guess: <input disabled class="border border-black rounded p-1 disabled:bg-gray-400" id="player1Guess" type="text" />
+            <button id="player1Submit" disabled class=" bg-emerald-600 hover:bg-emerald-800 p-1.5 border rounded-sm disabled:bg-gray-400" onclick='submitPlayer1Guess("player1Guess", "player1GuessesDiv")'>Submit</button>
             <div id="player1GuessesDiv"></div>
         </div>
         
         <div class="border rounded-sm p-6 w-1/2">
             <h2>Player 2's turn to guess:</h2>
-            Enter Your guess: <input class="border border-black rounded p-1" id="player2Guess" type="text" />
-            <button id="player2Submit" disabled class="bg-emerald-600 hover:bg-emerald-800 p-1.5 border rounded-sm" onclick='submitPlayer2Guess("player2Guess", "player2GuessesDiv")'>Submit</button>
+            Enter Your guess: <input disabled class="border border-black rounded p-1 disabled:bg-gray-400" id="player2Guess" type="text" />
+            <button id="player2Submit" disabled class="bg-emerald-600 hover:bg-emerald-800 p-1.5 border rounded-sm disabled:bg-gray-400" onclick='submitPlayer2Guess("player2Guess", "player2GuessesDiv")'>Submit</button>
             <div id="player2GuessesDiv"></div>
         </div>
     </div>
