@@ -3,6 +3,7 @@ class Player {
     playerSelections: Array<string | null> | undefined;
     numberOfCorrectGuesses: number = 0;
     guesses: Array<string> = [];
+    arrayOfCorrectGuesses: Array<string> = [];
     
     constructor(name: string, playerSelections: Array<string | null> ) {
         this.name = name;
@@ -57,14 +58,31 @@ let player1: Player | undefined;
 let player2: Player | undefined;
 let battleShipGame: BattleshipGameHtml | undefined;
 
+function displayGuesses(divId: string, player: Player) {
+    const divShowGuesses = getDivElement(divId);
+    divShowGuesses.innerHTML = '';
+    if(player?.guesses && player.arrayOfCorrectGuesses) {
+        for (let index = 0; index < player.guesses.length; index++) {
+            let currentGuessValue: string = player.guesses[index];
+            if(player.arrayOfCorrectGuesses.includes(currentGuessValue)) {
+                divShowGuesses.innerHTML = divShowGuesses.innerHTML + `<div class="border border-b-emerald-700 bg-green-400 rounded-sm p-2 m-1">${currentGuessValue}</div>`;
+            } else {
+                divShowGuesses.innerHTML = divShowGuesses.innerHTML + `<div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 m-1">${currentGuessValue}</div>`;
+            }
+        }
+    }
+}
+
 function submitPlayer1Guess(player1GuessId: string, divId: string) {
     if(player2 && player1) {
-        submitGuess(player1GuessId, player1 ,player2)
+        submitGuess(player1GuessId, player1 ,player2);
     } else {
         alert("Invalid player 1 information");
     }
-    const divShowGuesses = getDivElement(divId);
-    divShowGuesses.innerText = player1?.guesses.toString()?? "";
+    
+    if(player1) {
+        displayGuesses(divId, player1);
+    }
 }
 
 function submitPlayer2Guess(player2GuessId: string, divId: string) {
@@ -73,32 +91,32 @@ function submitPlayer2Guess(player2GuessId: string, divId: string) {
     } else {
         alert("Invalid player 2 information");
     }
-    const divShowGuesses = getDivElement(divId);
-    divShowGuesses.innerText = player2?.guesses.toString()?? "";
+    
+    if(player2) {
+        displayGuesses(divId, player2);
+    }
 }
 
-function submitGuess(player1GuessId: string, guessingPlayer: Player, player: Player) {
-    const guessInputElement = getInputValue(player1GuessId)
-    const guess = guessInputElement;
-    const playerSelections = player.playerSelections?? [];
+function submitGuess(playerGuessId: string, guessingPlayer: Player, opponentPlayer: Player) {
+    const guess = getInputValue(playerGuessId).toUpperCase();
+    const playerSelections = opponentPlayer.playerSelections?? [];
     const returnValue: number = findPositionInArrayBattleship(playerSelections, guess)?? -1;
     
     guessingPlayer.guesses.push(guess);
     
     if(returnValue != undefined) {
-        if(returnValue > 3) {
-            alert("Nice try! but your guess is wrong.")
-        } else {
-            if(player.playerSelections) {
-                player.playerSelections[returnValue] = null;
+        if(!(returnValue > 3)) {
+            if(opponentPlayer.playerSelections) {
+                opponentPlayer.playerSelections[returnValue] = null;
                 if(guessingPlayer.numberOfCorrectGuesses != undefined ) {
                     if(guessingPlayer.numberOfCorrectGuesses < 4) {
                         alert(`Nice! You guessed it. ${playerSelections.length -  guessingPlayer.numberOfCorrectGuesses - 1} more to go.`)
+                        guessingPlayer.arrayOfCorrectGuesses.push(guess);
                     }
                     guessingPlayer.numberOfCorrectGuesses++;
                 }
             }
-        }
+        } 
     } else {
         alert("Invalid Selection.")
     }
@@ -108,27 +126,27 @@ function submitGuess(player1GuessId: string, guessingPlayer: Player, player: Pla
     } else if(checkArrayIsAllNull(player1?.playerSelections??[]) == true) {
         alert(`GAME OVER! PLAYER 2 WINS!`)
     }
-    resetInputValue(player1GuessId);
+    resetInputValue(playerGuessId);
 }
 
 function resetGame() {
-    const choicesPlayer1 = document.getElementsByClassName('choice')
-    const choicesPlayer2 = document.getElementsByClassName('choice2')
+    const choicesPlayer1 = document.getElementsByClassName('choice');
+    const choicesPlayer2 = document.getElementsByClassName('choice2');
+    battleShipGame = undefined;
     if(player1) {
         for(let i: number = 0; i < choicesPlayer1.length; i++) {
-            deSelectItem(choicesPlayer1[i], player1, choicesPlayer1[i].innerHTML)
+            deSelectItem(choicesPlayer1[i], player1, choicesPlayer1[i].innerHTML);
         }
     }
     
     if(player2) {
         for(let j: number = 0; j < choicesPlayer2.length; j++) {
-            deSelectItem(choicesPlayer2[j], player2, choicesPlayer2[j].innerHTML)
+            deSelectItem(choicesPlayer2[j], player2, choicesPlayer2[j].innerHTML);
         }
     }
     
     player1 = undefined;
     player2 = undefined;
-    battleShipGame = undefined;
     disbleButton("startButton");
 }
 
@@ -161,7 +179,7 @@ function showChoices(player: string, divId: string, gridDivId: string) {
     }
     
     divIdVar.innerText = playChoices;
-
+    
     const gridDiv = getDivElement(gridDivId) as HTMLDivElement;
     gridDiv.className = 'flex justify-center m-2 rounded-md p-2 space-x-2';
 }
@@ -169,7 +187,7 @@ function showChoices(player: string, divId: string, gridDivId: string) {
 function hideChoices(choiceTextdivId: string, gridDivId: string) {
     const divIdVar = getDivElement(choiceTextdivId) as HTMLDivElement;
     divIdVar.innerText = '';
-
+    
     const gridDiv = getDivElement(gridDivId) as HTMLDivElement;
     gridDiv.className = 'hidden';
 }
@@ -256,3 +274,15 @@ for(let i = 0; i < choices.length; i++) {
 for(let j = 0; j < choices2.length; j++) {
     choices2[j].addEventListener('click', selectGridItem2);
 }
+
+
+// Practice Code Area
+
+// const practiceDiv = getDivElement('practiceDiv');
+// for (let index = 0; index < 5; index++) {
+//     practiceDiv.innerText = practiceDiv.innerText + `<div class="border border-blue-500 min-h-10 p-1">Div ${index}</div>`;
+// }
+
+// for (let index = 0; index < 5; index++) {
+//     practiceDiv.innerHTML = practiceDiv.innerHTML + `<div class="border border-blue-500 min-h-10 p-1">Div ${index}</div>`;
+// }
