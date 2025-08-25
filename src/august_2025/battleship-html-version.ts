@@ -74,6 +74,7 @@ function displayGuesses(divId: string, player: Player) {
 }
 
 function submitPlayer1Guess(player1GuessId: string, divId: string) {
+    
     if(player2 && player1) {
         submitGuess(player1GuessId, player1 ,player2);
     } else {
@@ -102,23 +103,24 @@ function submitGuess(playerGuessId: string, guessingPlayer: Player, opponentPlay
     const playerSelections = opponentPlayer.playerSelections?? [];
     const returnValue: number = findPositionInArrayBattleship(playerSelections, guess)?? -1;
     
-    guessingPlayer.guesses.push(guess);
-    
-    if(returnValue != undefined) {
-        if(!(returnValue > 3)) {
-            if(opponentPlayer.playerSelections) {
-                opponentPlayer.playerSelections[returnValue] = null;
-                if(guessingPlayer.numberOfCorrectGuesses != undefined ) {
-                    if(guessingPlayer.numberOfCorrectGuesses < 4) {
-                        alert(`Nice! You guessed it. ${playerSelections.length -  guessingPlayer.numberOfCorrectGuesses - 1} more to go.`)
-                        guessingPlayer.arrayOfCorrectGuesses.push(guess);
-                    }
-                    guessingPlayer.numberOfCorrectGuesses++;
-                }
-            }
-        } 
+    if(guess == '') {
+        alert('Invalid Guess.')
     } else {
-        alert("Invalid Selection.")
+        guessingPlayer.guesses.push(guess);
+        if(returnValue != undefined) {
+            if(!(returnValue > 3)) {
+                if(opponentPlayer.playerSelections) {
+                    opponentPlayer.playerSelections[returnValue] = null;
+                    if(guessingPlayer.numberOfCorrectGuesses != undefined ) {
+                        if(guessingPlayer.numberOfCorrectGuesses < 4) {
+                            alert(`Nice! You guessed it. ${playerSelections.length -  guessingPlayer.numberOfCorrectGuesses - 1} more to go.`)
+                            guessingPlayer.arrayOfCorrectGuesses.push(guess);
+                        }
+                        guessingPlayer.numberOfCorrectGuesses++;
+                    }
+                }
+            } 
+        }
     }
     
     if(checkArrayIsAllNull(player2?.playerSelections?? []) == true) {
