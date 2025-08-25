@@ -168,17 +168,115 @@
     <div class="flex justify-between m-3 space-x-10">
         <div class="border rounded-sm p-6 w-1/2">
             <h2>Player 1's turn to guess:</h2>
-            Enter Your guess: <input disabled class="border border-black rounded p-1 disabled:bg-gray-400" id="player1Guess" type="text" />
-            <button id="player1Submit" disabled class=" bg-emerald-600 hover:bg-emerald-800 p-1.5 border rounded-sm disabled:bg-gray-400" onclick='submitPlayer1Guess("player1Guess", "player1GuessesDiv")'>Submit</button>
+            <!-- Enter Your guess: <input disabled class="border border-black rounded p-1 disabled:bg-gray-400" id="player1Guess" type="text" />
+            <button id="player1Submit" disabled class=" bg-emerald-600 hover:bg-emerald-800 p-1.5 border rounded-sm disabled:bg-gray-400" onclick='submitPlayer1Guess("player1Guess", "player1GuessesDiv")'>Submit</button> -->
+            <!-- Grid Outter Div-->
+            <div class="flex  justify-center m-2 rounded-md p-2 space-x-2" id="player1Grid">
+                
+                <!--Row 1 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">A1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">A2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">A3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">A4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">A5</div>
+                </div>
+                
+                <!--Row 2 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">B1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">B2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">B3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">B4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">B5</div>
+                </div>
+                
+                <!--Row 3 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">C1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">C2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">C3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">C4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">C5</div>
+                </div>
+                
+                <!--Row 4 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">D1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">D2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">D3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">D4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">D5</div>
+                </div>
+                
+                <!--Row 5 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">E1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">E2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">E3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">E4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player1Guess">E5</div>
+                </div>
+                
+            </div>
             <div id="player1GuessesDiv" class="flex flex-row">
-
+                
             </div>
         </div>
         
         <div class="border rounded-sm p-6 w-1/2">
             <h2>Player 2's turn to guess:</h2>
-            Enter Your guess: <input disabled class="border border-black rounded p-1 disabled:bg-gray-400" id="player2Guess" type="text" />
-            <button id="player2Submit" disabled class="bg-emerald-600 hover:bg-emerald-800 p-1.5 border rounded-sm disabled:bg-gray-400" onclick='submitPlayer2Guess("player2Guess", "player2GuessesDiv")'>Submit</button>
+            <!-- Enter Your guess: <input disabled class="border border-black rounded p-1 disabled:bg-gray-400" id="player2Guess" type="text" />
+            <button id="player2Submit" disabled class="bg-emerald-600 hover:bg-emerald-800 p-1.5 border rounded-sm disabled:bg-gray-400" onclick='submitPlayer2Guess("player2Guess", "player2GuessesDiv")'>Submit</button> -->
+            <!-- Grid Outter Div-->
+            <div class="flex  justify-center m-2 rounded-md p-2 space-x-2" id="player1Grid">
+                
+                <!--Row 1 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess" onclick="">A1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">A2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">A3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">A4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">A5</div>
+                </div>
+                
+                <!--Row 2 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">B1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">B2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">B3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">B4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">B5</div>
+                </div>
+                
+                <!--Row 3 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">C1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">C2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">C3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">C4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">C5</div>
+                </div>
+                
+                <!--Row 4 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">D1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">D2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">D3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">D4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">D5</div>
+                </div>
+                
+                <!--Row 5 Div-->
+                <div class="space-y-2">
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">E1</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">E2</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">E3</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">E4</div>
+                    <div class="border border-b-emerald-700 bg-red-400 rounded-sm p-2 player2Guess">E5</div>
+                </div>
+                
+            </div>
             <div class="flex flex-row" id="player2GuessesDiv"></div>
         </div>
     </div>
@@ -186,7 +284,7 @@
     
     
     
-
+    
     
     <!-- =================== Practice Area =================== -->
     <h2>Practice</h2>

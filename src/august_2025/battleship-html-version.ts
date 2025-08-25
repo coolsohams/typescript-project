@@ -73,33 +73,35 @@ function displayGuesses(divId: string, player: Player) {
     }
 }
 
-function submitPlayer1Guess(player1GuessId: string, divId: string) {
+function submitPlayer1Guess(event: any) {
+    const guess = event.target.innerText;
     
     if(player2 && player1) {
-        submitGuess(player1GuessId, player1 ,player2);
+        submitGuess(guess, player1 ,player2);
     } else {
         alert("Invalid player 1 information");
     }
     
     if(player1) {
-        displayGuesses(divId, player1);
+        displayGuesses('player1GuessesDiv', player1);
     }
 }
 
-function submitPlayer2Guess(player2GuessId: string, divId: string) {
+function submitPlayer2Guess(event: any) {
+    const guess = event.target.innerText;
+
     if(player1 && player2) {
-        submitGuess(player2GuessId, player2 ,player1)
+        submitGuess(guess, player2 ,player1)
     } else {
         alert("Invalid player 2 information");
     }
     
     if(player2) {
-        displayGuesses(divId, player2);
+        displayGuesses('player2GuessesDiv', player2);
     }
 }
 
-function submitGuess(playerGuessId: string, guessingPlayer: Player, opponentPlayer: Player) {
-    const guess = getInputValue(playerGuessId).toUpperCase();
+function submitGuess(guess: string, guessingPlayer: Player, opponentPlayer: Player) {
     const playerSelections = opponentPlayer.playerSelections?? [];
     const returnValue: number = findPositionInArrayBattleship(playerSelections, guess)?? -1;
     
@@ -128,7 +130,6 @@ function submitGuess(playerGuessId: string, guessingPlayer: Player, opponentPlay
     } else if(checkArrayIsAllNull(player1?.playerSelections??[]) == true) {
         alert(`GAME OVER! PLAYER 2 WINS!`)
     }
-    resetInputValue(playerGuessId);
 }
 
 function resetGame() {
@@ -216,6 +217,13 @@ function selectItem(target: HTMLElement, player: Player, selectedValue: string) 
     } 
 }
 
+function selectGuess(event: any, guessingPlayer: Player, opponentPlayer: Player , guessingPlayerNumber: number) {
+    const selectedValue = event.target.innerText;
+
+    event.target.className = `border border-b-emerald-700 bg-green-400 rounded-sm p-2 player${guessingPlayerNumber}Guess`;
+    submitGuess(selectedValue, guessingPlayer, opponentPlayer);
+}
+
 function deSelectItem(target: Element, player: Player, selectedValue: string) {
     if(battleShipGame == undefined && target) {
         target.className = 'border border-b-emerald-700 bg-red-400 rounded-sm p-2 choice';
@@ -268,6 +276,8 @@ function selectGridItem2(event: any) {
 
 const choices: HTMLCollectionOf<Element> = document.getElementsByClassName('choice');
 const choices2: HTMLCollectionOf<Element> = document.getElementsByClassName('choice2');
+const guess: HTMLCollectionOf<Element> = document.getElementsByClassName('player1Guess');
+const guess2: HTMLCollectionOf<Element> = document.getElementsByClassName('player2Guess');
 
 for(let i = 0; i < choices.length; i++) {
     choices[i].addEventListener('click', selectGridItem1);
@@ -275,6 +285,14 @@ for(let i = 0; i < choices.length; i++) {
 
 for(let j = 0; j < choices2.length; j++) {
     choices2[j].addEventListener('click', selectGridItem2);
+}
+
+for(let k = 0; k < guess.length; k++) {
+    guess[k].addEventListener('click', submitPlayer1Guess);
+}
+
+for(let l = 0; l < choices2.length; l++) {
+    guess2[l].addEventListener('click', submitPlayer2Guess);
 }
 
 
