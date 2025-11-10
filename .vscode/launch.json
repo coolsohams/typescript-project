@@ -7,9 +7,18 @@
       {
         "type": "node",
         "request": "launch",
-        "name": "Launch Program",
+        "name": "Launch All",
         "program": "${workspaceFolder}/src/index.ts",
         "preLaunchTask": "build_all",
+        "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+        "console": "integratedTerminal"
+      },
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Launch Typescript",
+        "program": "${workspaceFolder}/src/index.ts",
+        "preLaunchTask": "complie_ts",
         "outFiles": ["${workspaceFolder}/dist/**/*.js"],
         "console": "integratedTerminal"
       }
