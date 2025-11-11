@@ -7,15 +7,20 @@
           "command": "npm run build-tailwind"
         },
         {
+          "label": "complie_ts_watch",
+          "type": "shell",
+          "command": "npm run build-tsc-watch"
+        },
+        {
           "label": "complie_ts",
           "type": "shell",
-          "command": "npm run build-typescript"
+          "command": "npm run build-tsc"
         },
         {
         "label": "build_all",
             "dependsOn": [
                 "complie_tailwind",
-                "complie_ts"
+                "complie_ts_watch"
             ]
         }
       ]
