@@ -32,4 +32,5 @@
 // import "./august_2025/geometry";
 // import "./august_2025/html-practice";
 // import "./august_2025/battleship";
-import "./august_2025/battleship-html-version"
+// import "./august_2025/battleship-html-version"
+import "./november_2025/tic-tac-toe";
