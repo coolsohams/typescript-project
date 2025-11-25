@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wordle Game</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- <link rel="stylesheet" href="battleship.css"> -->
+    <link rel="stylesheet" href="../output.css" >
+</head>
+
+<body>
+    <input class="border-2 m-4" type="text" id="wordInput">
+    <button class="border-2 bg-blue-700 p-2 text-white rounded-md" onclick="submitWord()">Submit Word</button>
+
+    <input class="border-2 m-4" type="text" id="guessInput">
+    <button class="border-2 bg-blue-700 p-2 text-white rounded-md" onclick="submitGuessWordle()">Submit Guess</button>
+
+    <div id="displayDiv" class="flex flex-row m-5"></div>
+    <div id="numberOfGuessesLeftDisplayDiv">0</div>
+    <script src="../../dist/november_2025/wordle-game-html-version.js"></script>
+</body>
+</html>
