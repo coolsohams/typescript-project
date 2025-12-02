@@ -10,14 +10,19 @@
 </head>
 
 <body>
-    <input class="border-2 m-4" type="text" id="wordInput">
-    <button class="border-2 bg-blue-700 p-2 text-white rounded-md" onclick="submitWord()">Submit Word</button>
-
-    <input class="border-2 m-4" type="text" id="guessInput">
-    <button class="border-2 bg-blue-700 p-2 text-white rounded-md" onclick="submitGuessWordle()">Submit Guess</button>
-
-    <div id="displayDiv" class="flex flex-row m-5"></div>
+    <div id="displayDiv" class="flex flex-col m-5 max items-center"></div>
     <div id="numberOfGuessesLeftDisplayDiv">0</div>
+    
+    
+    <div class="flex justify-center">
+        <input class="border-2 m-4" type="text" id="wordInput">
+        <button class="border-2 bg-blue-700 p-2 text-white rounded-md" onclick="submitWord()">Submit Word</button>
+        
+        <input class="border-2 m-4" type="text" id="guessInput">
+        <button class="border-2 bg-blue-700 p-2 text-white rounded-md" onclick="submitGuessWordle()">Submit Guess</button>
+    </div>
+    
+    
     <script src="../../dist/november_2025/wordle-game-html-version.js"></script>
 </body>
 </html>
