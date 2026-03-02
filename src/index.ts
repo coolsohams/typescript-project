@@ -34,4 +34,6 @@
 // import "./august_2025/battleship";
 // import "./august_2025/battleship-html-version"
 // import "./november_2025/tic-tac-toe";
-import "./november_2025/wordle"
+// import "./november_2025/wordle"
+import "./december_2025/bank-application"
+// import "./december_2025/anonymous-functions"
