@@ -21,11 +21,15 @@ export class Bank {
         console.log(`Customer ID ${customerId} has sucessfully been removed.`)
     }
     
-    findCustomer(customerId: string) {
+    findCustomerId(customerId: string) {
         const customer = this.arrayOfCustomers.find(cust => cust.customerId == customerId);
         return customer;
     }
     
+    findCustomerByName(username: string): Customer | undefined {
+        return this.arrayOfCustomers.find((customer) => customer.name = username)
+    }
+
     findAccount(accountId: string): Account | undefined {
         let customerAccount: Account | undefined;
 
@@ -87,12 +91,14 @@ export class Bank {
 
 export class Customer {
     customerId: string;
-    name: string = '';
+    name!: string;
+    password!:string;
     arrayOfAccounts: Array<Account> = [];
     
-    constructor(name: string) {
+    constructor(name: string, password: string) {
         this.customerId = uuidv4();
         this.name = name;
+        this.password = password;
     }
     
     printAllAccountDetails() {

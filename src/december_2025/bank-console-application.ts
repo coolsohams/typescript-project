@@ -3,9 +3,9 @@ import { AccountType, Bank, Customer } from "./bank-library";
 let prompts = require('prompt-sync')({ sigint: true }); // Enables Ctrl+C to exit;
 
 // Create customers
-let customer1: Customer = new Customer('Soham Shinde');
-let customer2: Customer = new Customer('Deepa Garad');
-let customer3: Customer = new Customer('Suryakand Shinde');
+let customer1: Customer = new Customer('Soham Shinde', 'test');
+let customer2: Customer = new Customer('Deepa Garad', 'test');
+let customer3: Customer = new Customer('Suryakand Shinde', 'test');
 
 // Create Bank with 3 customers
 let bankObject: Bank = new Bank([customer1, customer2, customer3]);
@@ -15,7 +15,7 @@ bankObject.arrayOfCustomers.forEach((customer) => customer.printAllAccountDetail
 let actionPrompt: string = '';
 
 let customerId = prompts("Welcome to Bank, please enter your customer ID: ");
-let customer: Customer | undefined = bankObject.findCustomer(customerId);
+let customer: Customer | undefined = bankObject.findCustomerId(customerId);
 
 while (actionPrompt != '6') {
     if(customer != undefined) {
@@ -81,7 +81,7 @@ while (actionPrompt != '6') {
                 break;
             case '5': // Exit
                 customerId = prompts("Welcome to Bank, please enter your customer ID: ");
-                customer = bankObject.findCustomer(customerId);
+                customer = bankObject.findCustomerId(customerId);
                 break;                           
             case '6': // Exit
                 console.log(`Thank you for banking with us!`)

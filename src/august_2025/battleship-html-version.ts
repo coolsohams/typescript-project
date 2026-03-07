@@ -1,3 +1,4 @@
+import { getDivElement, getInputValue } from "../web-utilities/utilities";
 
 class Grid {
     elements: Array<Array<string>> = [
@@ -93,20 +94,20 @@ function findPositionInArrayBattleship(arr: Array<any>, findingVariable: any) : 
     return i;
 }
 
-function getInputValue(inputElementId: string) {
-    const inputElement = document.getElementById(inputElementId) as HTMLInputElement;
-    return inputElement.value;
-}
+// function getInputValue(inputElementId: string) {
+//     const inputElement = document.getElementById(inputElementId) as HTMLInputElement;
+//     return inputElement.value;
+// }
 
-function getDivElement(inputElementId: string) {
-    const divElement = document.getElementById(inputElementId) as HTMLDivElement;
-    return divElement;
-}
+// function getDivElement(inputElementId: string) {
+//     const divElement = document.getElementById(inputElementId) as HTMLDivElement;
+//     return divElement;
+// }
 
-function resetInputValue(inputElementId: string) {
-    const inputElement = document.getElementById(inputElementId) as HTMLInputElement;
-    inputElement.value = '';
-}
+// function resetInputValue(inputElementId: string) {
+//     const inputElement = document.getElementById(inputElementId) as HTMLInputElement;
+//     inputElement.value = '';
+// }
 
 let player1: Player | undefined;
 let player2: Player | undefined;
