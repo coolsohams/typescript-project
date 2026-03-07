@@ -7,6 +7,15 @@
       {
         "type": "node",
         "request": "launch",
+        "name": "Launch Web",
+        "program": "${workspaceFolder}/src/index.ts",
+        "preLaunchTask": "serve_webpack",
+        "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+        "console": "integratedTerminal"
+      },      
+      {
+        "type": "node",
+        "request": "launch",
         "name": "Launch All",
         "program": "${workspaceFolder}/src/index.ts",
         "preLaunchTask": "build_all",

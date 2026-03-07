@@ -1,3 +1,5 @@
+import './style.css';
+
 // ************************ GENERAL PRACTICE *********************
 // import  "./general/random-number";
 // import { PrintArray } from "./general/print-array";
@@ -35,6 +37,6 @@
 // import "./august_2025/battleship-html-version"
 // import "./november_2025/tic-tac-toe";
 // import "./november_2025/wordle"
-import "./december_2025/bank-console-application";
-// import "./december_2025/bank-ui-application";
+// import "./december_2025/bank-console-application";
+import "./december_2025/bank-ui-application";
 // import "./december_2025/anonymous-functions";

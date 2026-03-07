@@ -17,10 +17,21 @@
           "command": "npm run build-tsc"
         },
         {
+          "label": "serve_html",
+          "type": "shell",
+          "command": "npm run serve"
+        }, 
+        {
+          "label": "serve_webpack",
+          "type": "shell",
+          "command": "npm run start"
+        },               
+        {
         "label": "build_all",
             "dependsOn": [
                 "complie_tailwind",
-                "complie_ts_watch"
+                "complie_ts_watch",
+                "serve_html"
             ]
         }
       ]
